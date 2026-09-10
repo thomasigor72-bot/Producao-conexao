@@ -3,6 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#07111f">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
 <title>Segundo Turno — Evolução da Produção</title>
 <style>
 *{box-sizing:border-box}body{margin:0;background:#07111f;color:#eef5ff;font-family:Arial,Helvetica,sans-serif}
@@ -585,5 +591,14 @@ function filtrarApontamentosPorCorredor(){
     row.style.display=(v==='TODOS'||corredorDaMaquina(m)===v)?'':'none';
   });
 }
-</script><script>setInterval(()=>{if(typeof filtrarApontamentosPorCorredor==='function')filtrarApontamentosPorCorredor();},300);</script></body>
+</script><script>setInterval(()=>{if(typeof filtrarApontamentosPorCorredor==='function')filtrarApontamentosPorCorredor();},300);</script>
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function () {
+    navigator.serviceWorker.register("./service-worker.js").catch(function () {});
+  });
+}
+</script>
+
+</body>
 </html>
